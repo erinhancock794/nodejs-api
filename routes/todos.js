@@ -1,11 +1,15 @@
 const express = require("express");
 const router = express.Router();
 
-function findMatchingTodo(array, id) {
-  const todo = array.find((i) => i.id === Number(id));
-  const index = array.findIndex((i) => i.id === Number(id));
-  return { todo, index };
+function findMatchingTodo(array, identifier) {
+    const { id, task } = identifier; //POST request passes task instead of id
+    const matchingTodo = array.find((i) => {
+        return i.id == id || i.task === task
+    })
+  const index = array.findIndex((i) => i.id == id);
+  return { matchingTodo, index};
 }
+
 function validateCategory(array, category) {
   return Boolean(array.find((i) => i.category === category));
 }
@@ -26,43 +30,38 @@ router.get("/", (req, res) => {
 //GET returns all todos within specific category
 router.get("/:category", (req, res) => {
   const { category } = req.params;
-
-  const matchingTodos = allTodos.filter((i) => i.category === category);
-
-  matchingTodos[0]
-    ? res.status(200).json(matchingTodos)
+  const todosWithCategory = allTodos.filter((i) => i.category === category);
+  todosWithCategory[0]
+    ? res.status(200).json(todosWithCategory)
     : res.status(404).json("No todos with requested category");
 });
 
 //POST adds a todo to allTodos
 router.post("/add", (req, res) => {
-  console.log("req---", req.body);
   const { task, category } = req.body;
-
-  //checks for duplicate task names
-  const isDuplicate = Boolean(allTodos.find((i) => i.task === task));
+  //checks for duplicate tasks
+  const { matchingTodo } = findMatchingTodo(allTodos, { task })
+  const isDuplicate = Boolean(matchingTodo);
 
   //checks if category is valid
-  //   const isCategoryValid = allTodos.find((i) => i.category === category)
   const isCategoryValid = validateCategory(allTodos, category);
-  console.log("isCat valid--->", isCategoryValid);
 
   if (isDuplicate) {
     res.status(409).json({
-      error: 409,
-      message: "Todo already exists",
+      error: true,
+      message: 'Todo already exists',
     });
   } else if (!isCategoryValid && category) {
     res.status(409).json({
-      error: 409,
+      error: true,
       message:
-        "Invalid category. To create a new category, use POST /category/add",
+        'Invalid category. To create a new category, use POST /category/add',
     });
   } else {
     const newTodo = {
       id: Date.now(),
       task,
-      category: category || "uncategorized",
+      category: category || 'uncategorized',
       complete: false,
     };
     console.log("newTodo---_>", newTodo);
@@ -78,48 +77,39 @@ router.put("/:todoId", (req, res) => {
   const { todoId } = req.params;
   console.log("todo id---", todoId);
   const { task, category, complete } = req.body;
-  const todoToEdit = allTodos.find((i) => i.id === Number(todoId));
-  console.log("todoTo Edit---", todoToEdit);
+  const { matchingTodo, index } = findMatchingTodo(allTodos, { id: Number(todoId) });
 
   const isCategoryValid = validateCategory(allTodos, category);
   console.log("isCategory valid?? ---", isCategoryValid);
   if (!isCategoryValid && category) {
     res.status(409).json({
-      error: 409,
+      error: true,
       message:
         "Invalid category. To create a new category, use POST /category/add",
     });
   } else {
     const updatedTodo = {
-      id: todoToEdit.id,
-      task: task || todoToEdit.task,
-      category: category || todoToEdit.category,
-      complete: complete || todoToEdit.complete,
+      id: matchingTodo.id,
+      task: task || matchingTodo.task,
+      category: category || matchingTodo.category,
+      complete: complete || matchingTodo.complete,
     };
-    console.log("upodated todo---", updatedTodo);
 
-    const todoIndex = allTodos.findIndex((i) => i.id === Number(todoId));
-    console.log("todoIndex----", todoIndex);
-    allTodos.splice(todoIndex, 1, updatedTodo);
-    console.log("allTodos---", allTodos);
+    allTodos.splice(index, 1, updatedTodo);
     res.status(200).json({ 
         message: "success",
         updatedTodo: updatedTodo,
-        previousTodo: todoToEdit
+        previousTodo: matchingTodo
      });
   }
 });
 
 router.delete("/:todoId", (req, res) => {
   const { todoId } = req.params;
-  console.log("todoId---", todoId);
-  const { todo, index } = findMatchingTodo(allTodos, todoId);
-  console.log("todo---", todo);
-  console.log("index---", index);
-
-  if (!todo) {
-    res.status(409).json({
-      error: 404,
+  const { matchingTodo, index } = findMatchingTodo(allTodos, { id: Number(todoId) });
+  if (!matchingTodo) {
+    res.status(404).json({
+      error: true,
       message: `No tasks with ID of ${todoId} found`,
     });
   } else {
