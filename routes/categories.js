@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
   });
 
   //POST add new category
-  router.post('/', (req, res) => {
+  router.post('/add', (req, res) => {
       const { category } = req.body;
       //add validation
       allCategories.push(category);
