@@ -5,7 +5,6 @@ const app = express();
 const bodyParser = require('body-parser');
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-app.set('allCat', allCategories)
 
 app.listen(3000, () => {
     console.log('server running on port 3000');
