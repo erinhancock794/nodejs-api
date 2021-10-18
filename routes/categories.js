@@ -28,18 +28,10 @@ router.get('/', (req, res) => {
   //PUT update a category
 
   router.put('/update/:currentCategory', (req, res) => {
-      console.log('allCategories------>', allCategories);
     const { currentCategory } = req.params;
-
     const { category } = req.body;
-    console.log('categoryu', category);
-
     const isCurrentCategoryValid = validateCategory(allCategories, currentCategory)
-    console.log('isCurrentCategoryValid', isCurrentCategoryValid);
-
     const isNewCategoryValid = !validateCategory(allCategories, category);
-    console.log('isNewCategoryValid', isNewCategoryValid);
-
     if (!isCurrentCategoryValid) {
         res.status(404).json({
             error: true,

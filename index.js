@@ -1,19 +1,6 @@
 const express = require('express');
 const todosRoutes = require('./routes/todos')
 const categoriesRoutes = require('./routes/categories');
-
-
-
-const allCategories = ['school', 'work', 'health']
-const allTodos = [
-    { id: 1, task: 'go to school', category: 'school', complete: false },
-    { id: 2, task: 'work', category: 'work', complete: false },
-    { id: 3, task: 'go to dentist', category: 'health', complete: false },
-    { id: 4, task: 'do homework', category: 'school', complete: false },
-    { id: 5, task: 'go to gym', category: 'health', complete: false },
-  ];
-
-
 const app = express();
 const bodyParser = require('body-parser');
 app.use(bodyParser.json())

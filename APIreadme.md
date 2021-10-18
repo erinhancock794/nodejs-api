@@ -25,11 +25,13 @@ Category | String | The category that the new task belongs to. If left blank, th
 
 #### Example 
 ```
-Request {
+Request
+{
         "task": "do homework",
         "category": "school"
 }
-Response {
+Response 
+{
     "message": "success",
     "newTodo": {
         "id": 1634516703038,

@@ -81,12 +81,10 @@ router.post('/add', (req, res) => {
 
 router.put('/:todoId', (req, res) => {
   const { todoId } = req.params;
-//   console.log("todo id---", todoId);
   const { task, category, complete } = req.body;
   const { matchingTodo, index } = findMatchingTodo(allTodos, { id: Number(todoId) });
 
   const isCategoryValid = validateCategory(allTodos, category);
-//   console.log("isCategory valid?? ---", isCategoryValid);
   if (!isCategoryValid && category) {
     res.status(409).json({
       error: true,
