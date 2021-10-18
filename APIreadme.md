@@ -15,6 +15,7 @@ Returns all todo items within a specified category.
 
 ### Add a Todo
 `POST /todos/add`
+
 Adds a new todo item. It will return an error if the new task is a duplicate of an existing task or the category is invalid.
 #### Parameters
 Name | Type | Description
@@ -22,54 +23,106 @@ Name | Type | Description
 Task (required) | String | The task for the new todo item
 Category | String | The category that the new task belongs to. If left blank, the category will be set to the default ("Uncategorized").
 
-#### Responses
-Status | Meaning | Description
------------- | ------------- | -------------
-200 | OK | Success
-409 | Conflict | Invalid Category or Todo Already Exists
+#### Example 
+```
+Request {
+        "task": "do homework",
+        "category": "school"
+}
+Response {
+    "message": "success",
+    "newTodo": {
+        "id": 1634516703038,
+        "task": "do homework",
+        "category": "school",
+        "complete": false
+    }
+}
+```
 
 ### Edit a Todo
 `PUT /todos/{id}`
-Edits specified perameters for an existing Todo item. 
+
+Edits specified parameters for an existing Todo item. If any parameters are not passed in the request, they will not be updated.
+
 
 #### Parameters
-If any parameters are not passed in the request, they will not be updated.
 Name | Type | Description
 ------------ | ------------- | -------------
-Task | String | The task for the new todo item
+Task | String | The task for the new todo item.
 Category | String | The category for the updated task.
-Complete | Boolean | The status of the todo
-#### Responses
-Status | Meaning | Description
------------- | ------------- | -------------
-200 | OK | Success
-409 | Conflict | Invalid Category
+Complete | Boolean | The status of the todo.
+
+#### Example 
+```
+Endpoint: /todos/1
+
+Request {
+
+        "task": "read book",
+        "complete": true
+}
+
+Response {
+    "message": "success",
+    "updatedTodo": {
+        "id": 1,
+        "task": "read book",
+        "category": "school",
+        "complete": true
+    },
+    "previousTodo": {
+        "id": 1,
+        "task": "go to school",
+        "category": "school",
+        "complete": false
+    }
+}
+```
 
 ### Delete a Todo
 `DELETE /todos/{id}`
 
 Removes a Todo. 
-#### Responses
-Status | Meaning | Description
------------- | ------------- | -------------
-200 | OK | Success
-404 | Not Found | Todo item not found
+
 
 ## Categories Endpoints
 ### List of Categories
 `GET /categories`
+
 Returns an array of categories.
 
 ### Add a New Category
 `POST /categories/add`
+
 Adds a new category.
 #### Parameters
 Name | Type | Description
 ------------ | ------------- | -------------
 Category | String | The name of the category to be added.
 
+#### Example
+```
+Endpoint: /categories
+
+Request Body {
+    "category": "fun"
+}
+Response {
+    "message": "success",
+    "categories": [
+        "school",
+        "work",
+        "health",
+        "fun"
+    ]
+}
+
+```
+
 ### Update a Category
 `PUT /categories/{currentCategory}`
+
 Updates an existing category by adding the name of the current category to the endpoint and passing a new category name on the body.
 #### Parameters
 Name | Type | Description
@@ -98,11 +151,7 @@ Response {
 ### Delete a Category
 `DELETE /categories/{currentCategory}`
 Removes a category.
-#### Responses
-Status | Meaning | Description
------------- | ------------- | -------------
-200 | OK | Success
-404 | Not Found | Category not found
+
 #### Example
 ```
 Endpoint: /categories/work
@@ -116,3 +165,11 @@ Response {
     ]
 }
 ```
+
+## Responses
+Status | Meaning | Description
+------------ | ------------- | -------------
+200 | OK | Success
+404 | Not Found | Category or Item not found
+409 | Conflict | Invalid Category or Todo Already Exists
+
