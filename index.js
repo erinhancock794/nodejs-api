@@ -14,7 +14,7 @@ app.use('/categories', categoriesRoutes)
 
 app.get('/', (req, res, next) => {
     res.json( {
-        message: 'todo app nodejs'
+        message: 'You hit the API! Nice! Read this for more info on how to access the rest of this API. https://github.com/erinhancock794/nodejs-api#readme'
     } )
 })
 
