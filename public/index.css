@@ -1,0 +1,1003 @@
+@media only screen and (max-width:700px) {
+  
+  .mobile-sizing {
+    padding:2%;
+  }
+  h6.categories-sortby{
+    font-size:12px;
+    width:55px;
+    padding-top:1.5%;
+  }
+  div.category-group{
+    margin-bottom:20px;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  button#edit-categories-btn{
+    font-size:10px;
+    padding:1.2% 2%;
+  }
+  select#defaultDropdown{
+    width:20px;
+  }
+  div.card {
+    margin:0;
+  }
+  .mb-sm-btn{
+    font-size:1px;
+    padding:0px;
+  }
+  .modal-edit-icon{
+    font-size:30px;
+  }
+  .modal-remove-icon{
+    font-size: 30px;
+  }
+  }
+  
+  
+  body {
+    background-color: #f9f9fa;
+  }
+  .delete-btn {
+    padding:10%;
+  }
+  .card-body {
+    max-width: 600px;
+    margin: auto;
+    background: #fff;
+    border: 1px solid black;
+  }
+  p {display: inline}
+  
+  .flex {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto
+  }
+  
+  .padding {
+    padding: 5rem;
+  }
+  
+  @media (max-width:991.98px) {
+  
+    .padding {
+        padding: 1.5rem;
+    }
+    
+    body {
+      background-color: #f9f9fa;
+    }
+    .delete-btn {
+      padding:10%;
+    }
+    .card-body {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      border: 1px solid black;
+    }
+    p {display: inline}
+    
+    .flex {
+      -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+      flex: 1 1 auto
+    }
+    
+    .padding {
+      padding: 5rem;
+    }
+    
+    @media (max-width:991.98px) {
+    
+      .padding {
+          padding: 1.5rem;
+      }
+    }
+    
+    @media (max-width:767.98px) {
+    
+      .padding {
+          padding: 0;
+      }
+    }
+    ul#modal-body{
+      padding:0;
+      margin:0;
+    }
+    h6.categories-sortby{
+      margin-right:20px;
+    }
+    .category-dropdown{
+      margin-right:20px;
+    }
+    #edit-categories-btn{
+      margin-left:10px;
+      padding:1px 10px;
+    }
+    .dropdown-button-group{
+      align-items: baseline;
+    }
+    select#defaultDropdown{
+      width:180px;
+    }
+    .category-group{
+      width:100%;
+      display:flex;
+      align-items: baseline;
+    }
+    .custom-select{
+      padding: 2px 5px;
+      width:50%;
+    }
+    .modal-displayed-categories{
+      list-style: none;
+      margin:0;
+      padding:2% .5%;
+      display:flex;
+      justify-content: space-between;
+    }
+    .edit-icons-div{
+      display:flex;
+    }
+    .modal-edit-icon{
+      font-size:24px;
+    }
+    .modal-remove-icon{
+      font-size: 24px;
+    }
+    
+    
+    .card {
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      -ms-box-shadow: none
+    }
+    
+    .pl-3,
+    .px-3 {
+      padding-left: 1rem !important
+    }
+    
+    .card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      word-wrap: break-word;
+      background-color: #fff;
+      background-clip: border-box;
+      border: 1px solid #d2d2dc;
+      border-radius: 0;
+      margin: 2rem;
+      padding: 2rem;
+    }
+    
+    .pr-3,
+    .px-3 {
+      padding-right: 1rem !important
+    }
+    
+    .card .card-body {
+      padding: 1.25rem 1.75rem;
+    }
+    
+    .card-body {
+      flex: 1 1 auto;
+      padding: 1.25rem
+    }
+    
+    .card .card-title {
+      color: #000000;
+      margin-bottom: 0.625rem;
+      text-transform: capitalize;
+      font-size: 0.875rem;
+      font-weight: 500
+    }
+    
+    .new-todo {
+      margin-bottom: 1.5rem;
+      overflow: hidden
+    }
+    
+    .d-flex {
+      display: flex !important
+    }
+    
+    .new-todo input[type="text"] {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      width: 100%;
+      background: transparent
+    }
+    
+    .form-control {
+      border: 1px solid #f3f3f3;
+      font-weight: 400;
+      font-size: 0.875rem
+    }
+    
+    .form-control {
+      display: block;
+      width: 100%;
+      padding: 0.875rem 1.375rem;
+      font-size: 1rem;
+      line-height: 1;
+      color: #495057;
+      background-color: #ffffff;
+      background-clip: padding-box;
+      border: 1px solid #ced4da;
+      border-radius: 2px;
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out
+    }
+    
+    .new-todo .btn {
+      margin-left: .5rem;
+      height: 100%;
+    }
+    
+    .btn {
+      font-size: .9em;
+      line-height: 1;
+      font-weight: 400;
+      padding: .7rem 1.5rem;
+      border-radius: 0.1275rem
+    }
+    
+    .list-wrapper {
+      height: 100%;
+      max-height: 100%
+    }
+    
+    .new-todo {
+      margin-bottom: 1.5rem;
+      overflow: hidden
+    }
+    
+    .new-todo input[type="text"] {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      width: 100%;
+      background: transparent
+    }
+    
+    .new-todo .btn,
+    .new-todo .fc button,
+    .fc .new-todo button,
+    .new-todo .ajax-upload-dragdrop .ajax-file-upload,
+    .ajax-upload-dragdrop .new-todo .ajax-file-upload,
+    .new-todo .swal2-modal .swal2-buttonswrapper .swal2-styled,
+    .swal2-modal .swal2-buttonswrapper .new-todo .swal2-styled,
+    .new-todo .wizard>.actions a,
+    .wizard>.actions .new-todo a {
+      margin-left: .5rem
+    }
+    
+    .rtl .new-todo .btn,
+    .rtl .new-todo .fc button,
+    .fc .rtl .new-todo button,
+    .rtl .new-todo .ajax-upload-dragdrop .ajax-file-upload,
+    .ajax-upload-dragdrop .rtl .new-todo .ajax-file-upload,
+    .rtl .new-todo .swal2-modal .swal2-buttonswrapper .swal2-styled,
+    .swal2-modal .swal2-buttonswrapper .rtl .new-todo .swal2-styled,
+    .rtl .new-todo .wizard>.actions a,
+    .wizard>.actions .rtl .new-todo a {
+      margin-left: auto;
+      margin-right: .5rem
+    }
+    
+    .list-wrapper {
+      height: 100%;
+      max-height: 100%
+    }
+    
+    .list-wrapper ul {
+      padding: 0;
+      text-align: left;
+      list-style: none;
+      margin-bottom: 0
+    }
+    
+    .list-wrapper ul li {
+      font-size: .9375rem;
+      padding: .4rem 0;
+      border-bottom: 1px solid #f3f3f3
+    }
+    
+    .list-wrapper ul li:first-child {
+      border-bottom: none
+    }
+    
+    .list-wrapper ul li .form-check {
+      max-width: 90%;
+      margin-top: .25rem;
+      margin-bottom: .25rem;
+    }
+    
+    .form-check-label{
+      overflow-wrap: break-word;
+    }
+    
+    .list-wrapper ul li .form-check label:hover {
+      cursor: pointer
+    }
+    
+    .list-wrapper input[type="checkbox"] {
+      margin:0;
+      padding:0%;
+      width:100%;
+      height:auto;
+    }
+    
+    .list-wrapper .remove {
+      cursor: pointer;
+      font-size: 1.438rem;
+      font-weight: 600;
+      width: 1.25rem;
+      height: 1.25rem;
+      line-height: 20px;
+      text-align: center
+    }
+    
+    .list-wrapper ul li .form-check {
+      max-width: 90%;
+      margin-top: .25rem;
+      margin-bottom: .25rem
+    }
+    
+    .list-wrapper ul li .form-check,
+    .list-wrapper ul li .form-check .form-check-label,
+    .email-wrapper .mail-sidebar .menu-bar .profile-list-item a .user .u-name,
+    .email-wrapper .mail-sidebar .menu-bar .profile-list-item a .user .u-designation,
+    .email-wrapper .mail-list-container .mail-list .content .sender-name,
+    .email-wrapper .message-body .attachments-sections ul li .details p.file-name,
+    .settings-panel .chat-list .list .info p {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      max-width: 100%;
+      white-space: nowrap
+    }
+    
+    .form-check {
+      position: relative;
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding-left: 0
+    }
+    
+    .list-wrapper ul li .form-check,
+    .list-wrapper ul li .form-check .form-check-label,
+    .email-wrapper .mail-sidebar .menu-bar .profile-list-item a .user .u-name,
+    .email-wrapper .mail-sidebar .menu-bar .profile-list-item a .user .u-designation,
+    .email-wrapper .mail-list-container .mail-list .content .sender-name,
+    .email-wrapper .message-body .attachments-sections ul li .details p.file-name,
+    .settings-panel .chat-list .list .info p {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      max-width: 100%;
+      white-space: nowrap
+    }
+    
+    .form-check .form-check-label {
+      min-height: 18px;
+      display: block;
+      margin-left: 1.75rem;
+      font-size: 0.875rem;
+      line-height: 1.5
+    }
+    
+    .form-check-label {
+      margin-bottom: 0
+    }
+    
+    .list-wrapper input[type="checkbox"] {
+      margin-right: 15px
+    }
+    
+    .form-check .form-check-label input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin-left: 0;
+      margin-top: 0;
+      z-index: 1;
+      cursor: pointer;
+      opacity: 0;
+      filter: alpha(opacity=0)
+    }
+    
+    input[type="radio"],
+    input[type="checkbox"] {
+      box-sizing: border-box;
+      padding: 0
+    }
+    
+    .list-wrapper ul li .form-check,
+    .list-wrapper ul li .form-check .form-check-label,
+    .email-wrapper .mail-sidebar .menu-bar .profile-list-item a .user .u-name,
+    .email-wrapper .mail-sidebar .menu-bar .profile-list-item a .user .u-designation,
+    .email-wrapper .mail-list-container .mail-list .content .sender-name,
+    .email-wrapper .message-body .attachments-sections ul li .details p.file-name,
+    .settings-panel .chat-list .list .info p {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      max-width: 100%;
+      white-space: nowrap
+    }
+    
+    .form-check .form-check-label input[type="checkbox"]+.input-helper:before {
+      content: "";
+      width: 18px;
+      height: 18px;
+      border-radius: 2px;
+      border: solid #405189;
+      border-width: 2px;
+      -webkit-transition: all;
+      -moz-transition: all;
+      -ms-transition: all;
+      -o-transition: all;
+      transition: all;
+      transition-duration: 0s;
+      -webkit-transition-duration: 250ms;
+      transition-duration: 250ms
+    }
+    
+    .form-check .form-check-label input[type="checkbox"]+.input-helper:before,
+    .form-check .form-check-label input[type="checkbox"]+.input-helper:after {
+      position: absolute;
+      top: 0;
+      left: 0
+    }
+  }
+  ul#modal-body{
+    padding:0;
+    margin:0;
+  }
+  h6.categories-sortby{
+    margin-right:20px;
+  }
+  .category-dropdown{
+    margin-right:20px;
+  }
+  #edit-categories-btn{
+    margin-left:10px;
+    padding:1px 10px;
+  }
+  .dropdown-button-group{
+    align-items: baseline;
+  }
+  select#defaultDropdown{
+    width:180px;
+  }
+  .category-group{
+    width:100%;
+    display:flex;
+    align-items: baseline;
+  }
+  .custom-select{
+    padding: 2px 5px;
+    width:50%;
+  }
+  .modal-displayed-categories{
+    list-style: none;
+    margin:0;
+    padding:2% .5%;
+    display:flex;
+    justify-content: space-between;
+  }
+  .edit-icons-div{
+    display:flex;
+  }
+  .modal-edit-icon{
+    font-size:24px;
+  }
+  .modal-remove-icon{
+    font-size: 24px;
+  }
+  .input-field-btn{
+    padding:7px 15px !important; 
+  }
+  .even-with-btn {
+    display:flex;
+    align-items: center;
+  }
+  h5.empty-modal-text{
+    font-size:14px;
+    color:rgb(236, 27, 27);
+  }
+  h6.empty-modal-text{
+    font-size:12px;
+    color:rgb(102, 102, 102);
+  }
+  
+  .card {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -ms-box-shadow: none
+  }
+  
+  .pl-3,
+  .px-3 {
+    padding-left: 1rem !important
+  }
+  
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #d2d2dc;
+    border-radius: 0;
+    margin: 2rem;
+    padding: 2rem;
+  }
+  
+  .pr-3,
+  .px-3 {
+    padding-right: 1rem !important
+  }
+  
+  .card .card-body {
+    padding: 1.25rem 1.75rem;
+  }
+  
+  .card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem
+  }
+  
+  .card .card-title {
+    color: #000000;
+    margin-bottom: 0.625rem;
+    text-transform: capitalize;
+    font-size: 0.875rem;
+    font-weight: 500
+  }
+  
+  .new-todo {
+    margin-bottom: 1.5rem;
+    overflow: hidden
+  }
+  
+  .d-flex {
+    display: flex !important
+  }
+  
+  .new-todo input[type="text"] {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    width: 100%;
+    background: transparent
+  }
+  
+  .form-control {
+    border: 1px solid #f3f3f3;
+    font-weight: 400;
+    font-size: 0.875rem
+  }
+  
+  .form-control {
+    display: block;
+    width: 100%;
+    padding: 0.875rem 1.375rem;
+    font-size: 1rem;
+    line-height: 1;
+    color: #495057;
+    background-color: #ffffff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 2px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out
+  }
+  
+  .new-todo .btn {
+    margin-left: .5rem;
+    height: 100%;
+  }
+  
+  .btn {
+    font-size: .9em;
+    line-height: 1;
+    font-weight: 400;
+    padding: .7rem 1.5rem;
+    border-radius: 0.1275rem
+  }
+  
+  .list-wrapper {
+    height: 100%;
+    max-height: 100%
+  }
+  
+  .new-todo {
+    margin-bottom: 1.5rem;
+    overflow: hidden
+  }
+  
+  .new-todo input[type="text"] {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    width: 100%;
+    background: transparent
+  }
+  
+  .new-todo .btn,
+  .new-todo .fc button,
+  .fc .new-todo button,
+  .new-todo .ajax-upload-dragdrop .ajax-file-upload,
+  .ajax-upload-dragdrop .new-todo .ajax-file-upload,
+  .new-todo .swal2-modal .swal2-buttonswrapper .swal2-styled,
+  .swal2-modal .swal2-buttonswrapper .new-todo .swal2-styled,
+  .new-todo .wizard>.actions a,
+  .wizard>.actions .new-todo a {
+    margin-left: .5rem
+  }
+  
+  .rtl .new-todo .btn,
+  .rtl .new-todo .fc button,
+  .fc .rtl .new-todo button,
+  .rtl .new-todo .ajax-upload-dragdrop .ajax-file-upload,
+  .ajax-upload-dragdrop .rtl .new-todo .ajax-file-upload,
+  .rtl .new-todo .swal2-modal .swal2-buttonswrapper .swal2-styled,
+  .swal2-modal .swal2-buttonswrapper .rtl .new-todo .swal2-styled,
+  .rtl .new-todo .wizard>.actions a,
+  .wizard>.actions .rtl .new-todo a {
+    margin-left: auto;
+    margin-right: .5rem
+  }
+  
+  .list-wrapper {
+    height: 100%;
+    max-height: 100%
+  }
+  
+  .list-wrapper ul {
+    padding: 0;
+    text-align: left;
+    list-style: none;
+    margin-bottom: 0
+  }
+  
+  .list-wrapper ul li {
+    font-size: .9375rem;
+    padding: .4rem 0;
+    border-bottom: 1px solid #f3f3f3
+  }
+  
+  .list-wrapper ul li:first-child {
+    border-bottom: none
+  }
+  
+  .list-wrapper ul li .form-check {
+    max-width: 90%;
+    margin-top: .25rem;
+    margin-bottom: .25rem;
+  }
+  
+  .form-check-label{
+    overflow-wrap: break-word;
+  }
+  
+  .list-wrapper ul li .form-check label:hover {
+    cursor: pointer
+  }
+  
+  .list-wrapper input[type="checkbox"] {
+    margin:0;
+    padding:0%;
+    width:100%;
+    height:auto;
+  }
+  
+  .list-wrapper .remove {
+    cursor: pointer;
+    font-size: 1.438rem;
+    font-weight: 600;
+    width: 1.25rem;
+    height: 1.25rem;
+    line-height: 20px;
+    text-align: center
+  }
+  
+  .list-wrapper ul li .form-check {
+    max-width: 90%;
+    margin-top: .25rem;
+    margin-bottom: .25rem
+  }
+  
+  .list-wrapper ul li .form-check,
+  .list-wrapper ul li .form-check .form-check-label,
+  .email-wrapper .mail-sidebar .menu-bar .profile-list-item a .user .u-name,
+  .email-wrapper .mail-sidebar .menu-bar .profile-list-item a .user .u-designation,
+  .email-wrapper .mail-list-container .mail-list .content .sender-name,
+  .email-wrapper .message-body .attachments-sections ul li .details p.file-name,
+  .settings-panel .chat-list .list .info p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100%;
+    white-space: nowrap
+  }
+  
+  .form-check {
+    position: relative;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 0
+  }
+  
+  .list-wrapper ul li .form-check,
+  .list-wrapper ul li .form-check .form-check-label,
+  .email-wrapper .mail-sidebar .menu-bar .profile-list-item a .user .u-name,
+  .email-wrapper .mail-sidebar .menu-bar .profile-list-item a .user .u-designation,
+  .email-wrapper .mail-list-container .mail-list .content .sender-name,
+  .email-wrapper .message-body .attachments-sections ul li .details p.file-name,
+  .settings-panel .chat-list .list .info p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100%;
+    white-space: nowrap
+  }
+  
+  .form-check .form-check-label {
+    min-height: 18px;
+    display: block;
+    margin-left: 1.75rem;
+    font-size: 0.875rem;
+    line-height: 1.5
+  }
+  
+  .form-check-label {
+    margin-bottom: 0
+  }
+  
+  .list-wrapper input[type="checkbox"] {
+    margin-right: 15px
+  }
+  
+  .form-check .form-check-label input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 0;
+    margin-top: 0;
+    z-index: 1;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0)
+  }
+  
+  input[type="radio"],
+  input[type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0
+  }
+  
+  .list-wrapper ul li .form-check,
+  .list-wrapper ul li .form-check .form-check-label,
+  .email-wrapper .mail-sidebar .menu-bar .profile-list-item a .user .u-name,
+  .email-wrapper .mail-sidebar .menu-bar .profile-list-item a .user .u-designation,
+  .email-wrapper .mail-list-container .mail-list .content .sender-name,
+  .email-wrapper .message-body .attachments-sections ul li .details p.file-name,
+  .settings-panel .chat-list .list .info p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100%;
+    white-space: nowrap
+  }
+  
+  .form-check .form-check-label input[type="checkbox"]+.input-helper:before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    border-radius: 2px;
+    border: solid #405189;
+    border-width: 2px;
+    -webkit-transition: all;
+    -moz-transition: all;
+    -ms-transition: all;
+    -o-transition: all;
+    transition: all;
+    transition-duration: 0s;
+    -webkit-transition-duration: 250ms;
+    transition-duration: 250ms
+  }
+  
+  .form-check .form-check-label input[type="checkbox"]+.input-helper:before,
+  .form-check .form-check-label input[type="checkbox"]+.input-helper:after {
+    position: absolute;
+    top: 0;
+    left: 0
+  }
+  
+  .form-check .form-check-label input[type="checkbox"]+.input-helper:after {
+    -webkit-transition: all;
+    -moz-transition: all;
+    -ms-transition: all;
+    -o-transition: all;
+    transition: all;
+    transition-duration: 0s;
+    -webkit-transition-duration: 250ms;
+    transition-duration: 250ms;
+    font-family: Material Design Icons;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
+    content: '\F12C';
+    font-size: .9375rem;
+    font-weight: bold;
+    color: #ffffff
+  }
+  
+  .form-check .form-check-label input[type="checkbox"]+.input-helper:before,
+  .form-check .form-check-label input[type="checkbox"]+.input-helper:after {
+    position: absolute;
+    top: 0;
+    left: 0
+  }
+  
+  .form-check .form-check-label input[type="checkbox"]:checked+.input-helper:before {
+    background: green;
+    color: green;
+    border-width: 0
+  }
+  
+  .form-check .form-check-label input[type="checkbox"]+.input-helper:before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    border-radius: 2px;
+    border: solid #405189;
+    border-width: 2px;
+    -webkit-transition: all;
+    -moz-transition: all;
+    -ms-transition: all;
+    -o-transition: all;
+    transition: all;
+    transition-duration: 0s;
+    -webkit-transition-duration: 250ms;
+    transition-duration: 250ms
+  }
+  
+  .form-check .form-check-label input[type="checkbox"]+.input-helper:after {
+    font-family: FontAwesome;
+    content: "\f095";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    color: #fff
+  }
+  
+  .text-primary,
+  .list-wrapper .completed .remove {
+    color: #405189 !important
+  }
+  
+  .list-wrapper .remove {
+    cursor: pointer;
+    font-size: 1.438rem;
+    font-weight: 600;
+    width: 1.25rem;
+    height: 1.25rem;
+    line-height: 20px;
+    text-align: center
+  }
+  
+  .ml-auto,
+  .list-wrapper .remove,
+  .mx-auto {
+    margin-left: auto !important
+  }
+  
+  .mdi-close-circle-outline:before {
+    content: "\F15A"
+  }
+  
+  .list-wrapper ul li {
+    font-size: .9375rem;
+    padding: .4rem 0;
+    border-bottom: 1px solid #f3f3f3
+  }
+  
+  .mdi:before {
+    font-family: FontAwesome;
+    content: "\f00d";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-size: .856em;
+    color: #405189
+  }
+  
+  .list-wrapper ul {
+    padding: 0;
+    text-align: left;
+    list-style: none;
+    margin-bottom: 0
+  }
+  
+  .flex-column-reverse {
+    flex-direction: column-reverse !important
+  }
+  
+  .d-flex,
+  .loader-demo-box,
+  .distribution-chart-legend .distribution-chart,
+  .distribution-chart-legend .distribution-chart .item,
+  .list-wrapper ul li,
+  .email-wrapper .mail-sidebar .menu-bar .profile-list-item a,
+  .email-wrapper .mail-sidebar .menu-bar .profile-list-item a .user,
+  .email-wrapper .mail-list-container .mail-list .details,
+  .email-wrapper .message-body .attachments-sections ul li .thumb,
+  .email-wrapper .message-body .attachments-sections ul li .details .buttons,
+  .lightGallery .image-tile .demo-gallery-poster,
+  .swal2-modal,
+  .navbar .navbar-menu-wrapper .navbar-nav,
+  .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-profile,
+  .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .navbar-dropdown .dropdown-item {
+    display: flex !important
+  }
+  
+  div.completed-section{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .completed-section button {
+    float: right;
+    margin-bottom: 15px;
+    border: none;
+    color: white;
+    background-color: #0d6efd;
+    padding: 2% 3%;
+    border-radius: 3px;
+  }
+  
+  .completed-section button:hover {
+    background-color: rgb(158, 18, 18);
+    color: white;
+  }
+  
+  .customeditbutton {
+    margin-right: 2%;
+    margin-top: 2%;
+    font-style: normal;
+  }
+  
+  .editicons {display: flex; justify-content: flex-end;}
+  .list-wrapper ul li {justify-content: space-between;}
+  
+  
+  
+  
+  #add-btn {
+    height: 100%;
+    width: auto;
+    margin: auto;
+    min-height: 60px;
+  }
+  
+  
+  .input-group-prepend {
+    border: none;
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 100%;
+    height: auto;
+    padding: 0;
+  }
+  
+  .new-todo {
+    display: grid;
+    grid-template-columns:1fr 1fr;
+    height: auto;
+  }

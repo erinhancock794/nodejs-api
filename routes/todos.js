@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-const allTodos = [
-    { id: 1, task: 'go to school', category: 'school', complete: false },
-    { id: 2, task: 'work', category: 'work', complete: false },
-    { id: 3, task: 'go to dentist', category: 'health', complete: false },
-    { id: 4, task: 'do homework', category: 'school', complete: false },
-    { id: 5, task: 'go to gym', category: 'health', complete: false },
-  ];
+// const allTodos = [
+//     { id: 1, task: 'go to school', category: 'school', complete: false },
+//     { id: 2, task: 'work', category: 'work', complete: false },
+//     { id: 3, task: 'go to dentist', category: 'health', complete: false },
+//     { id: 4, task: 'do homework', category: 'school', complete: false },
+//     { id: 5, task: 'go to gym', category: 'health', complete: false },
+//   ];
 
 function findMatchingTodo(array, identifier) {
     const { id, task } = identifier; //POST request passes task instead of id
@@ -24,9 +24,10 @@ function validateCategory(array, category) {
 
 
 // GET return all todos
-router.get('/', (req, res) => {
-  res.status(200).json(allTodos);
-});
+// router.get('/', (req, res) => {
+//   console.log('res------>', res);
+//   res.status(200).json(allTodos);
+// });
 
 //GET returns all todos within specific category
 router.get('/:category', (req, res) => {
