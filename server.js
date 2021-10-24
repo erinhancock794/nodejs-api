@@ -3,7 +3,6 @@ const express = require('express');
 // const categoriesRoutes = require('./routes/categories');
 const bodyParser = require('body-parser');
 const _ = require('lodash');
-
 const port = 5000;
 const app = express();
 
@@ -11,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(bodyParser.text());
 
-app.use(express.static('public'))
+app.use(express.static('public'));
 
 app.listen(port, () => {
     console.log(`server running on port ${port}`);
@@ -75,12 +74,12 @@ app.put('/todos/:todoId', (req, res) => {
       id: matchingTodo.id,
       task: task || matchingTodo.task,
     };
-    _.set(updatedTodo, 'complete', complete);
+    _.set(updatedTodo, 'complete', complete); //Boolean wouldn't update if I set it in the object above so I moved it here.
 
     allTodos.splice(index, 1, updatedTodo);
     res.status(200).json({ 
         message: 'success',
-        updatedTodo: updatedTodo,
+        updatedTodo,
         previousTodo: matchingTodo
      });
 });
