@@ -1,6 +1,6 @@
 # API for Todo App
 
-`node index.js`
+`node server.js`
 ## Todo Endpoints
 
 ### List of Todos
