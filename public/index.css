@@ -3,26 +3,7 @@
   .mobile-sizing {
     padding:2%;
   }
-  h6.categories-sortby{
-    font-size:12px;
-    width:55px;
-    padding-top:1.5%;
-  }
-  div.category-group{
-    margin-bottom:20px;
-    align-items: center;
-    justify-content: flex-end;
-  }
-  button#edit-categories-btn{
-    font-size:10px;
-    padding:1.2% 2%;
-  }
-  select#defaultDropdown{
-    width:20px;
-  }
-  div.card {
-    margin:0;
-  }
+  
   .mb-sm-btn{
     font-size:1px;
     padding:0px;
@@ -39,9 +20,9 @@
   body {
     background-color: #f9f9fa;
   }
-  .delete-btn {
+  /* .delete-btn {
     padding:10%;
-  }
+  } */
   .card-body {
     max-width: 600px;
     margin: auto;
@@ -103,31 +84,7 @@
           padding: 0;
       }
     }
-    ul#modal-body{
-      padding:0;
-      margin:0;
-    }
-    h6.categories-sortby{
-      margin-right:20px;
-    }
-    .category-dropdown{
-      margin-right:20px;
-    }
-    #edit-categories-btn{
-      margin-left:10px;
-      padding:1px 10px;
-    }
-    .dropdown-button-group{
-      align-items: baseline;
-    }
-    select#defaultDropdown{
-      width:180px;
-    }
-    .category-group{
-      width:100%;
-      display:flex;
-      align-items: baseline;
-    }
+
     .custom-select{
       padding: 2px 5px;
       width:50%;
@@ -181,27 +138,27 @@
       padding-right: 1rem !important
     }
     
-    .card .card-body {
+    /* .card .card-body {
       padding: 1.25rem 1.75rem;
-    }
+    } */
     
-    .card-body {
+    /* .card-body {
       flex: 1 1 auto;
       padding: 1.25rem
-    }
+    } */
     
-    .card .card-title {
+    /* .card .card-title {
       color: #000000;
       margin-bottom: 0.625rem;
       text-transform: capitalize;
       font-size: 0.875rem;
       font-weight: 500
-    }
+    } */
     
-    .new-todo {
+    /* .new-todo {
       margin-bottom: 1.5rem;
       overflow: hidden
-    }
+    } */
     
     .d-flex {
       display: flex !important
@@ -361,13 +318,6 @@
       white-space: nowrap
     }
     
-    .form-check {
-      position: relative;
-      display: block;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      padding-left: 0
-    }
     
     .list-wrapper ul li .form-check,
     .list-wrapper ul li .form-check .form-check-label,
@@ -460,13 +410,7 @@
   h6.categories-sortby{
     margin-right:20px;
   }
-  .category-dropdown{
-    margin-right:20px;
-  }
-  #edit-categories-btn{
-    margin-left:10px;
-    padding:1px 10px;
-  }
+ 
   .dropdown-button-group{
     align-items: baseline;
   }
@@ -482,29 +426,14 @@
     padding: 2px 5px;
     width:50%;
   }
-  .modal-displayed-categories{
-    list-style: none;
-    margin:0;
-    padding:2% .5%;
-    display:flex;
-    justify-content: space-between;
-  }
-  .edit-icons-div{
-    display:flex;
-  }
+
   .modal-edit-icon{
     font-size:24px;
   }
   .modal-remove-icon{
     font-size: 24px;
   }
-  .input-field-btn{
-    padding:7px 15px !important; 
-  }
-  .even-with-btn {
-    display:flex;
-    align-items: center;
-  }
+
   h5.empty-modal-text{
     font-size:14px;
     color:rgb(236, 27, 27);
@@ -544,23 +473,15 @@
   .px-3 {
     padding-right: 1rem !important
   }
+
   
-  .card .card-body {
-    padding: 1.25rem 1.75rem;
-  }
-  
-  .card-body {
-    flex: 1 1 auto;
-    padding: 1.25rem
-  }
-  
-  .card .card-title {
+  /* .card .card-title {
     color: #000000;
     margin-bottom: 0.625rem;
     text-transform: capitalize;
     font-size: 0.875rem;
     font-weight: 500
-  }
+  } */
   
   .new-todo {
     margin-bottom: 1.5rem;
@@ -706,24 +627,6 @@
     text-align: center
   }
   
-  .list-wrapper ul li .form-check {
-    max-width: 90%;
-    margin-top: .25rem;
-    margin-bottom: .25rem
-  }
-  
-  .list-wrapper ul li .form-check,
-  .list-wrapper ul li .form-check .form-check-label,
-  .email-wrapper .mail-sidebar .menu-bar .profile-list-item a .user .u-name,
-  .email-wrapper .mail-sidebar .menu-bar .profile-list-item a .user .u-designation,
-  .email-wrapper .mail-list-container .mail-list .content .sender-name,
-  .email-wrapper .message-body .attachments-sections ul li .details p.file-name,
-  .settings-panel .chat-list .list .info p {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    max-width: 100%;
-    white-space: nowrap
-  }
   
   .form-check {
     position: relative;
@@ -893,21 +796,21 @@
     text-align: center
   }
   
-  .ml-auto,
+  /* .ml-auto,
   .list-wrapper .remove,
   .mx-auto {
     margin-left: auto !important
-  }
+  } */
   
   .mdi-close-circle-outline:before {
     content: "\F15A"
   }
   
-  .list-wrapper ul li {
+  /* .list-wrapper ul li {
     font-size: .9375rem;
     padding: .4rem 0;
     border-bottom: 1px solid #f3f3f3
-  }
+  } */
   
   .mdi:before {
     font-family: FontAwesome;
@@ -925,10 +828,7 @@
     list-style: none;
     margin-bottom: 0
   }
-  
-  .flex-column-reverse {
-    flex-direction: column-reverse !important
-  }
+
   
   .d-flex,
   .loader-demo-box,
@@ -948,11 +848,11 @@
     display: flex !important
   }
   
-  div.completed-section{
+  /* div.completed-section{
     display:grid;
     grid-template-columns: 1fr 1fr;
-  }
-  .completed-section button {
+  } */
+  /* .completed-section button {
     float: right;
     margin-bottom: 15px;
     border: none;
@@ -960,34 +860,38 @@
     background-color: #0d6efd;
     padding: 2% 3%;
     border-radius: 3px;
-  }
+  } */
   
-  .completed-section button:hover {
+  /* .completed-section button:hover {
     background-color: rgb(158, 18, 18);
     color: white;
-  }
+  } */
   
   .customeditbutton {
-    margin-right: 2%;
-    margin-top: 2%;
+    /* margin-right: 2%; */
+    /* margin-top: 2%; */
     font-style: normal;
+    padding-right: 5%;
   }
   
-  .editicons {display: flex; justify-content: flex-end;}
-  .list-wrapper ul li {justify-content: space-between;}
+  .editicons {
+    display: flex; 
+    justify-content: flex-end;
+    margin: 0;
+    font-style: normal;
+  }
   
   
   
   
   #add-btn {
-    height: 100%;
     width: auto;
     margin: auto;
     min-height: 60px;
   }
   
   
-  .input-group-prepend {
+   .input-group-prepend {
     border: none;
     display: grid;
     grid-template-columns: auto auto;
@@ -995,9 +899,9 @@
     height: auto;
     padding: 0;
   }
-  
-  .new-todo {
+
+   /* .new-todo {
     display: grid;
     grid-template-columns:1fr 1fr;
     height: auto;
-  }
+  }  */

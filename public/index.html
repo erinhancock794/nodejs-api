@@ -20,11 +20,6 @@
             <div class="padding">
               <div class="card-body">
                 <h4 class="card-title">To Do List</h4>
-<!-- 
-                <header class="header">
-                  <h1>todos</h1>
-                  <input class="new-todo d-flex" placeholder="What needs to be done?" autofocus>
-                </header> -->
 
                 <div class="add-items d-flex">
                   <div class="input-group-prepend form-control">
@@ -33,42 +28,6 @@
                     <button type="submit" class="add btn btn-primary font-weight-bold todo-list-add-btn" id="add-btn">Add</button>
                   </div>
                 </div>
-
-                <ul class="todo-lists">
-                  <!-- These are here just to show the structure of the list items -->
-                  <!-- List items should get the class `editing` when editing and `completed` when marked as completed -->
-                  <!-- <li class="completed">
-                    <div class="view">
-                      <input class="toggle" type="checkbox" checked>
-                      <label>Taste JavaScript</label>
-                      <button class="destroy"></button>
-                    </div>
-                    <input class="edit" value="Create a TodoMVC template">
-                  </li>
-                  <li>
-                    <div class="view">
-                      <input class="toggle" type="checkbox">
-                      <label>Buy a unicorn</label>
-                      <button class="destroy"></button>
-                    </div>
-                    <input class="edit" value="Rule the web">
-                  </li>
-                </ul> -->
-    
-                <!-- <div class="category-group">
-                  <h6 class="categories-sortby">Sort By:</h6>
-                  <div class="dropdown-btn-group">
-                    <select class="custom-select" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-                      Select...
-                    </select>
-                  </div> -->
- 
-                    <!-- Button trigger modal -->
-                    <!-- <button type="button" id="edit-categories-btn" class="btn-sm btn-outline-primary" data-toggle="modal"
-                        data-target="#exampleModalLong">
-                        Edit Categories
-                    </button> -->
-                    </div>
 
                     <!-- Incomplete List -->
                     <div class="card" style=>
@@ -84,7 +43,7 @@
 
                         <div class="completed-section">
                           <h5 class="card-title">Completed</h5>
-                          <button class="btn-sm" onclick="deleteAllCompletedTasks();">Clear Tasks</button>
+                  
                         </div>
           
                         <div class="list-wrapper" id="complete-list">
@@ -97,38 +56,12 @@
                     </div>
                   </div>
 
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Edit Categories</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body" >
-                    <ul id="modal-body">
-            
-            
-                    </ul>
-                    </div>
-                    <div class="modal-footer">
-                
-                    <button type="button" id="" data-dismiss="modal" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-                </div>
-            </div>
-
         </div>
 
 
     </main>
 
     <script type="text/javascript" src="index.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>

@@ -1,34 +1,52 @@
 (function (window) {
   const incompleteTodoList = document.querySelector("#incomplete-ul");
   const completeTodoList = document.querySelector("#complete-ul");
-
   const newTodoInput = document.querySelector(".todo-list-input");
   const newTodoButton = document.querySelector(".todo-list-add-btn");
   newTodoButton.addEventListener("click", () => {
     submitNewTask(newTodoInput);
   });
-
   newTodoInput.addEventListener("keydown", (e) => {
     if (e.code === "Enter") {
-      console.log("you pressed enter");
       submitNewTask(newTodoInput);
     }
   });
 
-  fetch("/todos/")
+  function submitNewTask(newTodoInput) { //takes input from user and adds it to API and displays on browser
+    let task = newTodoInput.value;
+    if (!task) {
+      return window.alert("Todo item cannot be blank. Please try again.");
+    }
+    fetch("/todos/add", {
+      method: "POST",
+      body: JSON.stringify({ task }),
+      headers: getHeaders(),
+    })
+      .then(res => res.json())
+      .then((data) => {
+        if (data.error) {
+          window.alert(`${data.message}`);
+        } else {
+          displayTodo(data.newTodo, false);
+        }
+      });
+  }
+
+  fetch("/todos/") //populate todo list on server startup
     .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      data.forEach((todo) => displayTodo(todo));
-    });
-  function displayTodo(todo) {
-    // console.log("todo in display todo-0---->", todo);
+    .then(data => data.forEach((todo) => displayTodo(todo)));
+
+  function displayTodo(todo, completed) {
+    const isComplete = todo.complete || completed;
+    const taskListId = isComplete ? 'complete-list' : 'incomplete-list';
+    const checked = isComplete ? 'checked' : '';
+    const listToUpdate = isComplete ? completeTodoList : incompleteTodoList; //determines which list todo items go
+
     let todoTemplate = `
     <div class="form-check">
-    <label class="form-check-label">
-    <input id="${todo.id}" onClick="" class="js-tick checkbox" type="checkbox"/>
-    ${todo.task}
-    <p class="input-helper" id="incomplete-list">
+    <label class="form-check-label" id="${todo.task}">
+    <input id="${todo.id}" onClick="" class="js-tick checkbox" type="checkbox" ${checked}/>
+    <p class="input-helper" id="${taskListId}"> ${todo.task}
     </p>
     </label>
     <div class="editicons">
@@ -40,179 +58,94 @@
     </div>
 
     `;
-
-    if (!todo.complete) {
-      incompleteTodoList.insertAdjacentHTML("beforeend", todoTemplate);
-    } else {
-      displayCompletedTodo(todo);
-    }
+    listToUpdate.insertAdjacentHTML("beforeend", todoTemplate);
   }
 
-  function displayCompletedTodo(todo) {
-    let todoTemplate = `
-    <div class="form-check">
-    <label class="form-check-label">
-    <input id="${todo.id}" onClick="" class="js-tick checkbox" type="checkbox" checked />
-    ${todo.task}
-    <p class="input-helper" id="complete-list">
-    </p>
-    </label>
-    <div class="editicons">
-    <i onclick="" class="remove mdi mdi-close-circle-outline fas fa-edit customeditbutton" id="edit">
-    </i>
-    <i onclick="" class="remove mdi mdi-close-circle-outline" id="remove" >
-    </i>
-    </div>
-    </div>
-    `;
-    completeTodoList.insertAdjacentHTML("beforeend", todoTemplate);
-  }
   const listOfIncompleteTasks = document.querySelector(`#incomplete-list`);
   listOfIncompleteTasks.addEventListener("click", (event) => {
-    toggleTask(event); //moves tasks between incomplete and complete list by using PUT to edit the status of the task
-    deleteTask(event);
-    editTask(event);
+    handleEvents(event); 
   });
   const listOfCompleteTasks = document.querySelector(`#complete-list`);
   listOfCompleteTasks.addEventListener("click", (event) => {
-    event.preventDefault();
-
-    toggleTask(event); //sets task complete/incomplete
-    deleteTask(event); //removes task
-    editTask(event) //edits task
+    handleEvents(event);
   });
- 
 
-
-  function toggleTask(event) {
-    const { id, checked, type } = event.target;
-    
-    
+  function handleEvents(event){ //handles toggling between lists, editing, and deleting todos
+    event.preventDefault();
+    const { id, type } = event.target;
     if (type === "checkbox") {
-      updateTask(id, checked);
-      event.target.parentElement.parentElement.remove();
+      toggleTask(event); //sends tasks to incomplete or complete lists by using PUT to edit
+    } else if (id === "remove") {
+      deleteTask(event); //removes task
+    } else if (id === "edit") {
+      editTask(event); //edits task text content using PUT
     }
   }
 
-function editTask(event) {
-  console.log('event target--->', event.target);
-  const { id, checked, type } = event.target;
-  console.log('id--->', id);
-  // const getTask =
-  // event.target.parentElement.parentElement.querySelector(".checkbox");
-// const todoId = getTask.getAttribute("id"); //id of todo to be used in fetch call
-// console.log('todo id--->', todoId);
-const inputField = event.target.parentElement.parentElement;
-console.log('inputField--->', inputField);
-inputField.innerHTML = `<input placeholder="editing" id="edit-todo"></input><button class='mb-sm-btn btn btn-secondary btn-sm'>Update</button>`;
+  function toggleTask(event) {
+    const { id, checked } = event.target;
+    updateTask(id, checked);
+    event.target.parentElement.parentElement.remove();
+  }
 
-// inputField.firstChild.focus();
-// inputField.firstChild.select();
+  function editTask(event) {
+    const todoId = event.target.parentElement.parentElement
+      .querySelector(".checkbox")
+      .getAttribute("id");
 
-let updatedTodoString = document.getElementById(`${id}`).value;
-console.log('updatedTodoString--->', updatedTodoString);
+    const taskText = event.target.parentElement.parentElement
+      .querySelector(".form-check-label")
+      .getAttribute("id");
 
-  // if (id === 'edit') {
-  //   const 
-  //   updateTask(todoId, null, )
-  // }
+    const inputField = event.target.parentElement.parentElement;
 
-
-
-
-}
+    inputField.innerHTML = `<input placeholder="${taskText}" id="edit-todo"></input>`;
+    inputField.firstChild.focus();
+    inputField.firstChild.select();
+    inputField.firstChild.addEventListener("keyup", (event) => {
+      if (event.code === "Enter") {
+        let updatedTaskText = inputField.firstChild.value;
+        updateTask(todoId, undefined, updatedTaskText);
+        document.getElementById("edit-todo").parentElement.remove();
+      }
+    });
+  }
 
   function deleteTask(event) {
-    event.preventDefault();
     const getTask =
       event.target.parentElement.parentElement.querySelector(".checkbox");
     const todoId = getTask.getAttribute("id"); //id of todo to be used in fetch call
-    const { id } = event.target; //element id
-    if (id === "remove") {
-      fetch(`/todos/${todoId}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json; charset=UTF-8",
-        },
-      })
-        .then((res) => res.json())
-        .then(() => {
-          getTask.parentElement.parentElement.remove();
-        });
-    }
-  }
-
-  function submitNewTask(newTodoInput) {
-    let task = newTodoInput.value;
-    if (!task) {
-      return window.alert("Todo item cannot be blank. Please try again.");
-    }
-
-    fetch("/todos/add", {
-      method: "POST",
-      body: JSON.stringify({
-        task,
-      }),
-      headers: {
-        "Content-Type": "application/json; charset=UTF-8",
-      },
+    fetch(`/todos/${todoId}`, {
+      method: "DELETE",
+      headers: getHeaders(),
     })
       .then((res) => res.json())
-      .then((data) => {
-        if (data.error) {
-          window.alert(`${data.message}`);
-        } else {
-          displayTodo(data.newTodo);
-        }
+      .then(() => {
+        getTask.parentElement.parentElement.remove();
       });
   }
 
+
+
   function updateTask(id, complete, task) {
-    // console.log('bodyData---->', bodyData);
-    // const complete = _.get(bodyData, 'complete')
-    console.log('complete--->', complete);
-    console.log('task---->', task);
     fetch(`/todos/${id}`, {
       method: "PUT",
       body: JSON.stringify({
         complete,
         task
       }),
-      headers: {
-        "Content-Type": "application/json; charset=UTF-8",
-      },
+      headers: getHeaders(),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("data----->", data);
-        displayTodo(data.updatedTodo);
+        displayTodo(data.updatedTodo, complete);
       });
   }
 
-  // function renderTopInputSectionInDOM() {
-  //   const topInputSectionDiv = document.querySelector(".add-items");
-  //   const textInput = document.querySelector(".todo-list-input");
-  //   const inputGroup = document.querySelector(".input-group-prepend");
+  function getHeaders() {
+    return {
+      "Content-Type": "application/json; charset=UTF-8",
+    }
+  }
 
-  //   // event listener for hitting 'Enter' instead of clicking button
-  //   textInput.addEventListener("keyup", function (event) {
-  //     if (event.code === "Enter") {
-  //       submitInput(event);
-  //     }
-  //   });
-
-  //   // New Task Add Button
-  //   const addNewTaskButton = document.querySelector("#add-btn");
-
-  //   addNewTaskButton.addEventListener("click", (event) => {
-  //     submitInput(event);
-  //   });
-
-  //   inputGroup.appendChild(textInput);
-  //   topInputSectionDiv.appendChild(inputGroup);
-  //   topInputSectionDiv.appendChild(addNewTaskButton);
-
-  //   textInput.focus();
-  //   textInput.select();
-  // }
 })(window);

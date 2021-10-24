@@ -67,32 +67,15 @@ app.post('/todos/add', (req, res) => {
 //PUT-- update a todo
 app.put('/todos/:todoId', (req, res) => {
   const { todoId } = req.params;
-  // const { task, complete } = req.body;
   const { matchingTodo, index } = findMatchingTodo(allTodos, { id: Number(todoId) });
-  console.log('req params----->', req.params);
-  console.log(' req body---->', req.body);
-  console.log('lodash', _.get(matchingTodo, 'id'));
   const complete = _.get(req, 'body.complete')
   const task = _.get(req, 'body.task');
-  console.log('complete?', complete);
 
-
-  // const isCategoryValid = validateCategory(allTodos, category);
-  // if (!isCategoryValid && category) {
-  //   res.status(409).json({
-  //     error: true,
-  //     message:
-  //       'Invalid category. To create a new category, use POST /category/add',
-  //   });
-  // } else {
     const updatedTodo = {
       id: matchingTodo.id,
       task: task || matchingTodo.task,
-      // complete: complete ? complete : matchingTodo.complete
     };
     _.set(updatedTodo, 'complete', complete);
-    console.log('updatedTodo---->', updatedTodo);
-    console.log('matching todo=--', matchingTodo);
 
     allTodos.splice(index, 1, updatedTodo);
     res.status(200).json({ 
@@ -100,13 +83,11 @@ app.put('/todos/:todoId', (req, res) => {
         updatedTodo: updatedTodo,
         previousTodo: matchingTodo
      });
-  // }
 });
 
 //DELETE
 app.delete('/todos/:todoId', (req, res) => {
   const { todoId } = req.params;
-  console.log('todoId', todoId);
   const { matchingTodo, index } = findMatchingTodo(allTodos, { id: Number(todoId) });
   if (!matchingTodo) {
     res.status(404).json({
@@ -119,6 +100,7 @@ app.delete('/todos/:todoId', (req, res) => {
   }
 });
 
+//helper function
 function findMatchingTodo(array, identifier) {
   const { id, task } = identifier; //POST request passes task instead of id
   const matchingTodo = array.find((i) => {
