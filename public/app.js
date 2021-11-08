@@ -13,19 +13,15 @@
   function submitNewTask(newTodoInput) {
     //takes input from user and adds it to API and displays on browser
     let task = newTodoInput.value;
-    console.log('task---->', task);
     if (!task) {
       return window.alert("Todo item cannot be blank. Please try again.");
     }
     fetch("/todos/add", {
       method: "POST",
-      // headers: getHeaders(),
-      // body: JSON.stringify( {task} ),
       body: task
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log('data---->', data);
         data.error
           ? window.alert(`${data.message}`)
           : displayTodo(data.newTodo, false); //if API sends back an error, dispay error message, otherwise display todo
@@ -35,13 +31,10 @@
   fetch("/todos") //populate todo list on server startup
     .then(res => res.json())
     .then(data => {
-      console.log('data', data);
       data.forEach((todo) => displayTodo(todo))
     });
 
   function displayTodo(todo, completed) {
-    // console.log('todo---->', todo.);
-    console.log('completed?---', completed);
     const isComplete = todo.complete || completed
     const taskListId = isComplete ? "complete-list" : "incomplete-list";
     const checked = isComplete ? "checked" : "";
@@ -89,7 +82,6 @@
 
   function toggleTask(event) {
     const { id, checked } = event.target;
-    console.log('id----', id);
     updateTask(id, checked);
     event.target.parentElement.parentElement.remove();
   }
