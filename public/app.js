@@ -18,8 +18,7 @@
     }
     fetch("/todos/add", {
       method: "POST",
-      body: JSON.stringify({ task }),
-      headers: getHeaders(),
+      body: task
     })
       .then((res) => res.json())
       .then((data) => {
@@ -31,10 +30,12 @@
 
   fetch("/todos") //populate todo list on server startup
     .then(res => res.json())
-    .then(data => data.forEach((todo) => displayTodo(todo)));
+    .then(data => {
+      data.forEach((todo) => displayTodo(todo))
+    });
 
   function displayTodo(todo, completed) {
-    const isComplete = todo.complete || completed;
+    const isComplete = todo.complete || completed
     const taskListId = isComplete ? "complete-list" : "incomplete-list";
     const checked = isComplete ? "checked" : "";
     const listToUpdate = isComplete ? completeTodoList : incompleteTodoList; //determines which list todo items go
@@ -121,9 +122,14 @@
   }
 
   function updateTask(id, complete, task) {
+    let body = { complete, task }
+    if (complete === null) {
+      body = { task }
+
+    }
     fetch(`/todos/${id}`, {
       method: "PUT",
-      body: JSON.stringify({ complete, task }),
+      body: JSON.stringify(body),
       headers: getHeaders(),
     })
       .then((res) => res.json())
